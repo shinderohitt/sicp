@@ -1,29 +1,4 @@
-;; This buffer is for notes you don't want to save, and for Lisp evaluation.
-;; If you want to create a file, visit that file with C-x C-f,
-;; then enter the text in that file's own buffer.
-
-
-;; fibonacci series recursive procedure
-(define (fib n)
-  (cond ((= n 0) 0)
-        ((= n 1) 1)
-        (else (+ (fib (- n 1))
-                 (fib (- n 2))))))
-(fib 6)
-
-;; iterative method
-(define (fib2 count)
-  (fib-iter 0 1 count))
-(define (fib-iter a b count)
-  (if (= count 0)
-      a
-      (fib-iter b
-                (+ a b)
-                (- count 1))))
-(fib2 1)
-
-
-;; exercise 1.11
+;; Exercise 1.11
 ;; A function f is defined by the rule that
 ;; f(n) = n if n<3 and f(n) = f(n - 1) + 2f(n - 2) + 3f(n - 3) if n> 3.
 ;; Write a procedure that computes f by means of a recursive process.
@@ -55,3 +30,4 @@
            (- limit 1))))
 
 (fn-iter 7) ;; 142
+
