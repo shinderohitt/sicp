@@ -2,7 +2,7 @@
 ;; write a similar procedure analogous to sum (from 1.30)
 ;; for product
 
-(recursive)
+;; recursive
 (define (product term a next b)
   (if (> a b)
       1
@@ -24,4 +24,19 @@
 (define (multiply-integers a b)
   (product identity a inc b))
 
-(multiply-integers 1 10) ;; 3628800
+;; (multiply-integers 1 10) ;; 3628800
+
+;; factorial in terms of product
+(define (factorial n)
+  (multiply-integers 1 n))
+;; (factorial 10) ;; 3628800
+
+
+;; π approximation using Wallis Product
+(define (wallis-product n)
+  (define (term x)
+    (/ (* 4.0 (square x))
+      (- (* 4.0 (square x)) 1)))
+  (* 2 (product term 1 inc n)))
+
+(wallis-product 10000) ;Value: 3.1415141186819566
